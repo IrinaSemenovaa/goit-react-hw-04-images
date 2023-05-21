@@ -11,13 +11,16 @@ export default function ImageGallery({
   totalHits,
   perPage,
   handleLoadMore,
+  searchQuery,
+  page
 }) {
+   
   return (
     <div className={containerStyles}>
       <ul className={galleryStyles}>{hits}</ul>
       {status === 'pending' && <GeneralLoader />}
       {status === 'rejected' && <NotFoundMessage message={error} />}
-      {status === 'resolved' && totalHits - hits.length >= perPage && (
+      {status === 'resolved' && hits.length < totalHits && (
         <LoadMoreBtn onClick={handleLoadMore} />
       )}
     </div>

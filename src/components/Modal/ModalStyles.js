@@ -13,19 +13,18 @@ export const ModalBackdropStyles = css`
 `;
 
 export const ModalContentStyles = css`
-  width: 90%;
-  height: 90%;
-  max-width: 90vw;
-  max-height: 90vh;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 900px;
+  height: 600px;
+  background-color: #fff;
+  overflow: hidden;
 `;
 
 export const ModalImageStyles = css`
-  display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 `;

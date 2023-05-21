@@ -1,4 +1,3 @@
-/* eslint-disable no-use-before-define */
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { LoaderImg } from 'components/Loader/Loader';

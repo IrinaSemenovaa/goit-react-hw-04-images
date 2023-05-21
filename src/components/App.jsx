@@ -54,7 +54,22 @@ export default function App() {
     }
   }, [fetchImages, page, searchQuery]);
 
+  useEffect(() => {
+    if (searchQuery) {
+      clearGallery();
+      setTotalHits(0);
+      setStatus('idle');
+    }
+  }, [searchQuery]);
+
+  useEffect(() => {
+    if (page > 1) {
+      fetchImages();
+    }
+  }, [fetchImages, page]);
+
   const handleFormSubmit = searchQuery => {
+    setPage(1);
     setSearchQuery(searchQuery);
   };
 
@@ -62,11 +77,9 @@ export default function App() {
     setPage(prevPage => prevPage + 1);
   };
 
-  useEffect(() => {
-    if (page > 1) {
-      fetchImages();
-    }
-  }, [fetchImages, page]);
+  const clearGallery = () => {
+    setHits([]);
+  };
 
   return (
     <div>
